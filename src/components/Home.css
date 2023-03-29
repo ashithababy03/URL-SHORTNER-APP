@@ -1,0 +1,31 @@
+.heading{
+    margin-top: -10%;
+}
+
+input {
+    padding: 2%;
+    opacity: 50%;
+    width: 60%;
+    font-size:medium;
+}
+
+input::placeholder{
+    color: black;
+    font-weight: bold;
+}
+
+.home button {
+    padding: 2.2%;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.result p {
+    color: antiquewhite;
+}
+.result button{
+    cursor: pointer;
+    font-weight: bold;
+    width: 40%;
+    margin: 0.5%;
+}

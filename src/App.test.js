@@ -1,8 +1,23 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen, cleanup, fireEvent} from '@testing-library/react';
+import Home from './components/Home';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test('home page rendering', () =>{
+  render(<Home />)
+  expect(screen.getByRole("heading")).toHaveTextContent(/URL Shortner Application/);
+  expect(screen.queryByPlaceholderText(/Enter your URL to be shortened/))
+  expect(screen.getByRole("button", { name: "Go" })).toBeInTheDocument();
+})
+
+
+test("captures clicks", () => {
+  function handleUrlSubmit() {
+    done();
+  }
+  const { getByText } = render(
+    <Home onClick={handleUrlSubmit}>Go</Home>
+  );
+  const node = getByText("Go");
+  fireEvent.click(node);
 });
+
+afterEach(cleanup);
